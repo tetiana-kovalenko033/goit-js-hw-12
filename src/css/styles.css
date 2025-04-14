@@ -7,12 +7,150 @@
 /* Common styles */
 @import url('./reset.css');
 @import url('./base.css');
-@import url('./container.css');
-@import url('./animations.css');
 
-/* Sections style */
-@import url('./header.css');
-@import url('./vite-promo.css');
-@import url('./badges.css');
-@import url('./back-link.css');
-@import url('./footer.css');
+.loader.hidden {
+  display: none;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-width: 3px;
+  border-style: dashed solid solid dotted;
+  border-color: #ff3d00 #ff3d00 transparent #ff3d00;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 20px;
+  top: 31px;
+  border: 10px solid transparent;
+  border-right-color: #ff3d00;
+  transform: rotate(-40deg);
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.form {
+  display: flex;
+  gap: 8px;
+  margin-top: 36px;
+  justify-content: center;
+}
+
+.form input {
+  padding: 8px 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  width: 272px;
+  height: 40px;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  background-color: #fff;
+}
+.form input:hover {
+  border: 1px solid #000;
+}
+
+.form input:focus-within {
+  background-color: #fff;
+  border-color: #4e75ff;
+}
+
+/* .form input::placeholder-shown {
+  border-color: #4e75ff;
+} */
+
+/* .form input:focus-within {
+  background-color: #fff;
+  border-color: #4e75ff;
+} */
+
+.form button {
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 91px;
+  height: 40px;
+  background-color: #4e75ff;
+  font-weight: 500;
+  color: #fff;
+}
+.form button:hover {
+  background: #6c8cff;
+}
+
+.gallery {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+.gallery-item {
+  width: 360px;
+  border: 1px solid #808080;
+}
+
+.gallery-card {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+
+  height: 48px;
+}
+
+.gallery-card p {
+  padding: 4px 20px;
+  font-size: 12px;
+
+  line-height: 1.33;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+b {
+  font-weight: 600;
+}
+
+.my-toast .iziToast-body {
+  text-align: center;
+  width: 375px;
+  height: 88px;
+  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+}
+
+.load-more-hidden {
+  display: none;
+}
+.js-load-more {
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 125px;
+  margin-top: 32px;
+  background: #4e75ff;
+  font-weight: 500;
+  color: #fff;
+  margin-right: auto;
+  margin-left: auto;
+  height: 40px;
+}
+.js-load-more:hover {
+  background: #6c8cff;
+}

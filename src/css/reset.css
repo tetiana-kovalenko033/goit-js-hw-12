@@ -15,7 +15,7 @@ p:last-child {
 ul {
   margin: 0;
   padding: 0;
-  list-style: none;
+  list-style-type: none;
 }
 
 a {
@@ -25,10 +25,14 @@ a {
 
 button {
   cursor: pointer;
+  border: none;
 }
 
 img {
   display: block;
   max-width: 100%;
-  height: auto;
+  /* height: auto; */
+}
+*:focus {
+  outline: none;
 }
