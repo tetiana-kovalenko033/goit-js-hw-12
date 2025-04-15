@@ -40,6 +40,7 @@ async function onFormSubmit(event) {
 
     return;
   }
+  page = 1;
   showLoader();
 
   try {
@@ -62,9 +63,12 @@ async function onFormSubmit(event) {
 
     if (totalHits > page * 15) {
       showLoadMoreButton();
+    } else {
+      hideLoadMoreButton();
     }
   } catch (error) {
     console.log(error);
+    hideLoadMoreButton();
     iziToast.error({
       class: 'my-toast',
       title: '',
@@ -96,16 +100,10 @@ async function onLoadMore() {
       hideLoadMoreButton();
     }
 
-    const card = document.querySelector('.gallery-item');
-    const cardHeight = card.getBoundingClientRect().height;
-
-    window.scrollBy({
-      left: 0,
-      top: cardHeight,
-      behavior: 'smooth',
-    });
+    smoothScroll();
   } catch (error) {
     console.log(error);
+    hideLoadMoreButton();
     iziToast.info({
       class: 'my-toast',
       title: '',
@@ -117,5 +115,17 @@ async function onLoadMore() {
     });
   } finally {
     hideLoader();
+  }
+}
+
+function smoothScroll() {
+  const card = document.querySelector('.gallery-item');
+  const cardHeight = card.getBoundingClientRect().height;
+  if (card) {
+    window.scrollBy({
+      left: 0,
+      top: cardHeight * 2,
+      behavior: 'smooth',
+    });
   }
 }
